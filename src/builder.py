@@ -1,3 +1,10 @@
+"""
+This module contains code assisting in implementing the builder design pattern.
+
+Classes:
+    BuilderBase
+        Base class for creating builder classes.
+"""
 from abc import ABC, abstractmethod
 from typing import Any
 import logging
@@ -58,7 +65,7 @@ class BuilderBase(ABC):
 
     def build_and_get(self, *args, **kwargs) -> Any:
         """
-        Calls self.build then self.get to immediately build then return the desired object.
+        Calls self.build then self.get to immediately build then return the object.
 
         Arguments:
             self
