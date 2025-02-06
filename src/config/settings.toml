@@ -1,0 +1,4 @@
+[default]
+username = "admin"
+port = 5555
+database = {name='mydb', schema='main'}
