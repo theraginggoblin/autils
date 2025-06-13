@@ -29,25 +29,25 @@ class BuilderBase(ABC):
         build_and_get
     
     Public attributes
-        result
+        None
     """
 
     def __init__(self):
-        self.result: Any = None
+        self._result: Any = None
 
     @abstractmethod
     def build(self, *args, **kwargs) -> None:
         """
-        Method to be implemented that should build the desired object and store at self.result
+        Method to be implemented that should build the desired object and store at self._result
 
-        Calling this more than once will rebuild and overwrite the object at self.result
+        Calling this more than once will rebuild and overwrite the object at self._result
 
         Arguments:
             self
             args
-                Any args to be used to build the object stored at self.result
+                Any args to be used to build the object stored at self._result
             kwargs
-                Any keyword args to be used in building the object stored at self.result
+                Any keyword args to be used in building the object stored at self._result
         """
 
     def get(self) -> Any:
@@ -57,11 +57,11 @@ class BuilderBase(ABC):
             self
         Returns:
             Any
-                Returns object that at self.result
+                Returns object that at self._result
         """
-        if self.result is None:
-            LOGGER.warning("%s result is being gotten when it is None", __name__)
-        return self.result
+        if self._result is None:
+            LOGGER.warning("%s._result is being gotten when it is None", __name__)
+        return self._result
 
     def build_and_get(self, *args, **kwargs) -> Any:
         """
@@ -70,9 +70,9 @@ class BuilderBase(ABC):
         Arguments:
             self
             args
-                Any args to be used to build the object stored at self.result
+                Any args to be used to build the object stored at self._result
             kwargs
-                Any keyword args to be used in building the object stored at self.result
+                Any keyword args to be used in building the object stored at self._result
         """
         self.build(*args, **kwargs)
         return self.get()

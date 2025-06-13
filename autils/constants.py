@@ -1,0 +1,4 @@
+"""
+"""
+
+LOGGER_NAME = "autils"

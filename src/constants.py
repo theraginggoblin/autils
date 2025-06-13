@@ -1,4 +1,0 @@
-"""
-"""
-
-LOGGER_NAME = "autils"
