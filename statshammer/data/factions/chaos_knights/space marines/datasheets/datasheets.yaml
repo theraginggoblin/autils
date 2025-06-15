@@ -1,0 +1,32 @@
+datasheets:
+  assault_intercessor_squad:
+    models:
+      assault_intercessor:
+        count: 4
+        characteristics:
+          movement: 6
+          toughness: 4
+          save: 3
+          wounds: 2
+          leadership: 6
+          objective_control: 2
+        abilities:
+          faction:
+            oath of moment
+          unit:
+            - shock assault
+        equipped_wargear:
+          - sm_common__heavy_bolt_pistol
+          - sm_common__astartes_chainsword
+      assault_intercessor_sergeant:
+        base_model: assault_intercessor
+        count: 1
+    keywords:
+      - infantry
+      - battleline
+      - grenades
+      - imperium
+      - tacticus
+      - assault intercessor squad
+    faction_keywords:
+      - adeptus astartes

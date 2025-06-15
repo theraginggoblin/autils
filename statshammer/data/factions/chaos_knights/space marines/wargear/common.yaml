@@ -1,0 +1,81 @@
+wargear:
+  sm_common__hand_flamer:
+    type: ranged
+    profile:
+      abilities:
+        ignores_cover: null
+        pistol: null
+        torrent: null
+      range: 12
+      attacks: "d6"
+      ballistic_skill: null
+      strength: 3
+      armour_penetration: 0
+      damage: "1"
+  sm_common__heavy_bolt_pistol:
+    type: ranged
+    profile:
+      abilities:
+        pistol: null
+      range: 12
+      attacks: "1"
+      ballistic_skill: 3
+      strength: 4
+      armour_penetration: 1
+      damage: "1"
+  sm_common__plasma_pistol:
+    type: ranged
+    profiles:
+      standard:
+        abilities:
+          pistol: null
+        range: 12
+        attacks: "1"
+        ballistic_skill: 3
+        strength: 7
+        armour_penetration: 2
+        damage: "1"
+      supercharge:
+        abilities:
+          pistol: null
+          hazardous: null
+        range: 12
+        attacks: "1"
+        ballistic_skill: 3
+        strength: 8
+        armour_penetration: 3
+        damage: "2"
+  sm_common__astartes_chainsword:
+    type: melee
+    profile:
+      attacks: "4"
+      weapon_skill: 3
+      strength: 4
+      armour_penetration: 1
+      damage: "1"
+  sm_common__power_fist:
+    type: melee
+    profile:
+      attacks: "3"
+      weapon_skill: 3
+      strength: 8
+      armour_penetration: 2
+      damage: "2"
+  sm_common__power_weapon:
+    type: melee
+    profile:
+      attacks: "4"
+      weapon_skill: 3
+      strength: 5
+      armour_penetration: 2
+      damage: "1"
+  sm_common__thunder_hammer:
+    type: melee
+    profile:
+      abilities:
+        devastating_wounds: null
+      attacks: "3"
+      weapon_skill: 4
+      strength: 8
+      armour_penetration: 2
+      damage: "2"

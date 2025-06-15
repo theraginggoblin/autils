@@ -24,7 +24,7 @@ datasheets:
             - dread dominion
             - seething hatred
           damaged:
-            threshold: 7
+            threshold: 9
             effects:
               objective_control: -5
               attack_hit_roll: -1
@@ -46,7 +46,7 @@ datasheets:
       - chaos knights
   knight_abominant:
     models:
-      knight_despoiler:
+      knight_abominant:
         count: 1
         characteristics:
           movement: 10
@@ -69,7 +69,7 @@ datasheets:
             - vortex terrors
             - warp storms
           damaged:
-            threshold: 7
+            threshold: 9
             effects:
               objective_control: -5
               attack_hit_roll: -1
