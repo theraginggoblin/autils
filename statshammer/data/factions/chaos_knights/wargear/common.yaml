@@ -1,0 +1,61 @@
+wargear:
+  ck_common__daemonbreath_meltagun:
+    type: ranged
+    profile:
+      abilities:
+        melta: 2
+      range: 12
+      attacks: "1"
+      ballistic_skill: 3
+      strength: 9
+      armour_penetration: 4
+      damage: "d6"
+  ck_common__diabolus_heavy_stubber:
+    type: ranged
+    profile:
+      abilities:
+        rapid_fire: "3"
+      range: 36
+      attacks: "3"
+      ballistic_skill: 3
+      strength: 5
+      armour_penetration: 0
+      damage: "1"
+  ck_common__reaper_chainsword:
+    type: melee
+    profiles:
+      strike:
+        attacks: "4"
+        weapon_skill: 3
+        strength: 14
+        armour_penetration: 4
+        damage: "6"
+      sweep:
+        attacks: "12"
+        weapon_skill: 3
+        strength: 9
+        armour_penetration: 3
+        damage: "2"
+  ck_common__warpstrike_claw:
+    type: melee
+    profiles:
+      strike:
+        attacks: "4"
+        weapon_skill: 3
+        strength: 20
+        armour_penetration: 3
+        damage: "8
+      sweep:
+        attacks: "8"
+        weapon_skill: 3
+        strength: 10
+        armour_penetration: 2
+        damage: "3"
+  ck_common__titanic_feet:
+    type: melee
+    profile:
+      attacks: "4"
+      weapon_skill: 3
+      strength: 8
+      armour_penetration: 1
+      damage: "2"

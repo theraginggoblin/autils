@@ -1,0 +1,92 @@
+datasheets:
+  knight_despoiler:
+    models:
+      knight_despoiler:
+        count: 1
+        characteristics:
+          movement: 10
+          toughness: 11
+          save: 3
+          invulnerable_save:
+            type: shooting_only
+            save: 5
+          wounds: 26
+          leadership: 6
+          objective_control: 10
+        abilities:
+          core:
+            deadly_demise:
+              value: d6
+          faction:
+            harbingers of dread
+            super-heavy walker
+          unit:
+            - dread dominion
+            - seething hatred
+          damaged:
+            threshold: 7
+            effects:
+              objective_control: -5
+              attack_hit_roll: -1
+        equipped_wargear:
+          - ck_common__reaper_chainsword
+          - ck_common__warpstrike_claw
+          - ck_common__daemonbreath_meltagun
+          - ck_common__titanic_feet
+    keywords:
+      - vehicle
+      - walker
+      - titanic
+      - towering
+      - abhorrent
+      - character
+      - chaos
+      - knight despoiler
+    faction_keywords:
+      - chaos knights
+  knight_abominant:
+    models:
+      knight_despoiler:
+        count: 1
+        characteristics:
+          movement: 10
+          toughness: 11
+          save: 3
+          invulnerable_save:
+            type: shooting_only
+            save: 5
+          wounds: 26
+          leadership: 6
+          objective_control: 10
+        abilities:
+          core:
+            deadly_demise:
+              value: d6
+          faction:
+            harbingers of dread
+            super-heavy walker
+          unit:
+            - vortex terrors
+            - warp storms
+          damaged:
+            threshold: 7
+            effects:
+              objective_control: -5
+              attack_hit_roll: -1
+        equipped_wargear:
+          - ck_common__diabolus_heavy_stubber
+          - ck_knight_abominant__volkite_combustor
+          - ck_knight_abominant__balemace
+          - ck_knight_abominant__electroscourge
+    keywords:
+      - vehicle
+      - walker
+      - titanic
+      - towering
+      - abhorrent
+      - psyker
+      - character
+      - chaos
+      - knight abominant
+    faction_keywords:
+      - chaos knights

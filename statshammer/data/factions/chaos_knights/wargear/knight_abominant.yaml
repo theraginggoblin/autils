@@ -1,0 +1,32 @@
+wargear:
+  ck_knight_abominant__volkite_combustor:
+    type: ranged
+    profile:
+      abilities:
+        devastating_wounds: null
+      range: 36
+      attacks: "12"
+      ballistic_skill: 3
+      strength: 12
+      armour_penetration: 0
+      damage: "3"
+  ck_knight_abominant__balemace:
+    type: melee
+    profile:
+      abilities:
+        extra_attacks: null
+      attacks: "3"
+      weapon_skill: 3
+      strength: 8
+      armour_penetration: 1
+      damage: "2"
+  ck_knight_abominant__electroscourge:
+    type: melee
+    profile:
+      abilities:
+        sustained_hits: 1
+      attacks: "9"
+      weapon_skill: 3
+      strength: 10
+      armour_penetration: 2
+      damage: "3"

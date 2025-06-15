@@ -1,0 +1,79 @@
+wargear:
+  ck_knight_despoiler__daemonbreath_thermal_cannon:
+    type: ranged
+    profile:
+      abilities:
+        blast: null
+        melta: 6
+      range: 24
+      attacks: "2d3"
+      ballistic_skill: 3
+      strength: 12
+      armour_penetration: 4
+      damage: "d6"
+  ck_knight_despoiler__despoiler_battle_cannon:
+    type: ranged
+    profile:
+      abilities:
+        blast: null
+        rapid_fire: "d6 + 3"
+      range: 72
+      attacks: "d6 + 3"
+      ballistic_skill: 3
+      strength: 10
+      armour_penetration: 1
+      damage: "3"
+  ck_knight_despoiler__despoiler_gatling_cannon:
+    type: ranged
+    profile:
+      range: 36
+      attacks: "18"
+      ballistic_skill: 3
+      strength: 6
+      armour_penetration: 2
+      damage: "2"
+  ck_knight_despoiler__havoc_missile_pod:
+    type: ranged
+    profile:
+      abilities:
+        blast: null
+        indirect_fire: null
+      range: 48
+      attacks: "d6 + 1"
+      ballistic_skill: 3
+      strength: 5
+      armour_penetration: 0
+      damage: "1"
+  ck_knight_despoiler__ruinspear_rocket_pod:
+    type: ranged
+    profile:
+      range: 48
+      attacks: "3"
+      ballistic_skill: 3
+      strength: 8
+      armour_penetration: 2
+      damage: "d6"
+  ck_knight_despoiler__hellstorm_autocannons:
+    type: ranged
+    profile:
+      abilities:
+        anti_fly: 2
+        twin-linked: null
+      range: 48
+      attacks: "3"
+      ballistic_skill: 3
+      strength: 7
+      armour_penetration: 1
+      damage: "2"
+  ck_knight_despoiler__heavy_darkflamer:
+    type: ranged
+    profile:
+      abilities:
+        torrent: null
+        ignores_cover: null
+      range: 12
+      attacks: "d6"
+      ballistic_skill: null
+      strength: 5
+      armour_penetration: 1
+      damage: "1"
