@@ -1,0 +1,28 @@
+policies:
+  alpha_despoiler_shoot_meq:
+    attack:
+      ranged:
+        weapons:
+          attack_order:
+            - ck_knight_despoiler__daemonbreath_thermal_cannon
+            - ck_knight_despoiler__ruinspear_rocket_pod
+            - ck_common__daemonbreath_meltagun
+    abilities:
+      seething hatred:
+        preferred_usage: wound_roll
+  alpha_despoiler_melee_meq:
+    attack:
+      melee:
+        weapons:
+          profile_selection:
+            ck_common__reaper_chainsword: sweep
+          attack_order:
+            - ck_common__reaper_chainsword
+    abilities:
+      seething hatred:
+        preferred_usage: wound_roll
+  alpha_assault_intercessors_defend:
+    defend:
+      casualty_order:
+        - assault_intercessor
+        - assault_intercessor_sergeant

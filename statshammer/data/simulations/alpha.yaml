@@ -1,0 +1,33 @@
+simulations:
+  alpha:
+    type: basic
+    samples: 10000
+    processors: 12
+    run_on: cpu
+    output_filename: alpha_10000.yaml
+    attacking_unit:
+      attacker_1:
+        datasheet:
+          faction: chaos_knights
+          knight_despoiler:
+            attack_policy: alpha_despoiler_shoot_meq
+            models:
+              knight_despoiler:
+                count: 1
+                equipped_wargear:
+                  - ck_knight_despoiler__daemonbreath_thermal_cannon
+                  - ck_knight_despoiler__ruinspear_rocket_pod
+                  - ck_common__daemonbreath_meltagun
+                  - ck_common__reaper_chainsword
+                  - ck_common__titanic_feet
+    defending_unit:
+      defender_1:
+        datasheet:
+          faction: space marines
+          assault_intercessor_squad:
+            defend_policy: alpha_assault_intercessors_defend
+            models:
+              assault_intercessor:
+                count: 9
+              assault_intercessor_sergeant:
+                count: 1
