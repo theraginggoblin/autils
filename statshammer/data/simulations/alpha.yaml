@@ -2,7 +2,7 @@ simulations:
   alpha:
     type: basic
     samples: 10000
-    processors: 12
+    processors: 14
     run_on: cpu
     output_filename: alpha_10000.yaml
     attacking_unit:
