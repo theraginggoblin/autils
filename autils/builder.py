@@ -5,6 +5,7 @@ Classes:
     BuilderBase
         Base class for creating builder classes.
 """
+
 from abc import ABC, abstractmethod
 from typing import Any
 import logging
@@ -27,7 +28,7 @@ class BuilderBase(ABC):
         build
         get
         build_and_get
-    
+
     Public attributes
         None
     """
@@ -36,7 +37,7 @@ class BuilderBase(ABC):
         self._result: Any = None
 
     @abstractmethod
-    def build(self, *args, **kwargs) -> None:
+    def build(self) -> None:
         """
         Method to be implemented that should build the desired object and store at self._result
 
@@ -44,35 +45,31 @@ class BuilderBase(ABC):
 
         Arguments:
             self
-            args
-                Any args to be used to build the object stored at self._result
-            kwargs
-                Any keyword args to be used in building the object stored at self._result
+        Returns:
+            None
         """
 
     def get(self) -> Any:
         """
+        Returns object that at self._result
 
         Arguments:
             self
         Returns:
             Any
-                Returns object that at self._result
         """
         if self._result is None:
             LOGGER.warning("%s._result is being gotten when it is None", __name__)
         return self._result
 
-    def build_and_get(self, *args, **kwargs) -> Any:
+    def build_and_get(self) -> Any:
         """
         Calls self.build then self.get to immediately build then return the object.
 
         Arguments:
             self
-            args
-                Any args to be used to build the object stored at self._result
-            kwargs
-                Any keyword args to be used in building the object stored at self._result
+        Returns
+            Any
         """
-        self.build(*args, **kwargs)
+        self.build()
         return self.get()

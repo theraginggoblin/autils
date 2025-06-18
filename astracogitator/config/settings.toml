@@ -1,0 +1,3 @@
+[default]
+data_dir = "data"
+simulation_output_dir = "not yet determined" 

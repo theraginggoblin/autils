@@ -1,4 +1,3 @@
-"""
-"""
+""" """
 
 LOGGER_NAME = "autils"

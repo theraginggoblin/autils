@@ -2,8 +2,8 @@ simulations:
   alpha:
     type: basic
     samples: 10000
-    processors: 14
-    run_on: cpu
+    concurrency: 14
+    concurrency_method: multiprocessing
     output_filename: alpha_10000.yaml
     attacking_unit:
       attacker_1:
