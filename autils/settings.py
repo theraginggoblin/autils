@@ -28,7 +28,7 @@ class SettingsStore:
             return cls._instance
 
 
-class SettingsBuilder(BuilderBase):
+class SettingsDirector():
     """ """
 
     def build(self) -> None:
