@@ -94,12 +94,14 @@ class DirectorBase(ABC):
         self
         builder: BuilderBase | None = None
     Methods:
-
+        set_builder
+            Sets the builder used by this director.
+            Abstract method that builds the desired object and returns it.
     """
 
     def __init__(self, builder: BuilderBase | None = None):
         self._builder: BuilderBase | None = builder
-    
+
     def set_builder(self, builder: BuilderBase | None) -> None:
         """
         Sets the builder used by this director.
@@ -110,11 +112,11 @@ class DirectorBase(ABC):
             None
         """
         self._builder = builder
-    
+
     @abstractmethod
     def build(*args, **kwargs) -> Any:
         """
-        Builds the desired object and returns it.
+        Abstract method that builds the desired object and returns it.
 
         Arguments:
             *args
