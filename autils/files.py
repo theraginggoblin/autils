@@ -33,7 +33,7 @@ class FileUtils:
             List[Path]:
                 A list of file paths (Path objects) matching the extension.
         """
-        path_obj = Path(directory)
+        path_obj: Path = Path(directory)
         return list(path_obj.rglob(f"*.{extension}"))
 
 

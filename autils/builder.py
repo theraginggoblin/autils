@@ -107,6 +107,7 @@ class DirectorBase(ABC):
         Sets the builder used by this director.
 
         Arguments:
+            self
             builder: BuilderBase | None
         Returns:
             None
@@ -114,11 +115,12 @@ class DirectorBase(ABC):
         self._builder = builder
 
     @abstractmethod
-    def build(*args, **kwargs) -> Any:
+    def build(self, *args, **kwargs) -> Any:
         """
         Abstract method that builds the desired object and returns it.
 
         Arguments:
+            self
             *args
             **kwargs
         Returns:

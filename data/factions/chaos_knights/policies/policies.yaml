@@ -9,7 +9,7 @@ policies:
             - ck_common__daemonbreath_meltagun
     abilities:
       seething hatred:
-        preferred_usage: wound_roll
+        preferred_roll: wound_roll
   alpha_despoiler_melee_meq:
     attack:
       melee:
@@ -20,8 +20,9 @@ policies:
             - ck_common__reaper_chainsword
     abilities:
       seething hatred:
-        preferred_usage: wound_roll
+        preferred_roll: wound_roll
   alpha_assault_intercessors_defend:
+    type: unit
     defend:
       casualty_order:
         - assault_intercessor
