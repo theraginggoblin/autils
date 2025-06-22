@@ -10,10 +10,12 @@ Classes:
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Self
+from typing import Any, Self, TypeVar
 import logging
 
 from constants import LOGGER_NAME
+
+T = TypeVar('T')
 
 LOGGER = logging.getLogger(LOGGER_NAME + "." + __name__)
 
@@ -39,7 +41,7 @@ class BuilderBase(ABC):
     """
 
     def __init__(self):
-        self._result: Any = None
+        self._result: T = None
 
     @abstractmethod
     def build(self) -> Self:
@@ -55,20 +57,20 @@ class BuilderBase(ABC):
             Self
         """
 
-    def get(self) -> Any:
+    def get(self) -> T:
         """
         Returns object that at self._result
 
         Arguments:
             self
         Returns:
-            Any
+            T
         """
         if self._result is None:
             LOGGER.warning("%s._result is being gotten when it is None", __name__)
         return self._result
 
-    def build_and_get(self) -> Any:
+    def build_and_get(self) -> T:
         """
         Calls self.build then self.get to immediately build then return the object
         from self._result.
@@ -76,7 +78,7 @@ class BuilderBase(ABC):
         Arguments:
             self
         Returns
-            Any
+            T
         """
         self.build()
         return self.get()
@@ -115,7 +117,7 @@ class DirectorBase(ABC):
         self._builder = builder
 
     @abstractmethod
-    def build(self, *args, **kwargs) -> Any:
+    def build(self, *args, **kwargs) -> T:
         """
         Abstract method that builds the desired object and returns it.
 
@@ -124,5 +126,5 @@ class DirectorBase(ABC):
             *args
             **kwargs
         Returns:
-            Any
+            T
         """
