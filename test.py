@@ -24,27 +24,42 @@ def calculate_standard_deviation(a_list, mean: float = None):
 def get_uncertainty(a_list):
     return calculate_standard_deviation(a_list) / math.sqrt(len(a_list))
 
-#https://stats.stackexchange.com/questions/28987/calculate-number-of-needed-simulations
-def calculate_number_of_simulations_reqired(a_list):
+# https://stats.stackexchange.com/questions/28987/calculate-number-of-needed-simulations
+# above link didn't work
+def calculate_number_of_simulations_required(a_list):
     mean = statistics.mean(a_list)
     standard_deviation = calculate_standard_deviation(a_list, mean)
     error = 0.05
     uncertainty = 0.05
-    above_line = (1 - (uncertainty / 2) * standard_deviation)
+    above_line = 1 - ((uncertainty / 2) * standard_deviation)
     below_line = error * mean
     in_brackets = above_line / below_line
     simulations_required = math.pow(in_brackets, 2)
     return simulations_required * len(a_list)
 
-results = run_test_sim(10000, num_d6 = 8)
-num_simulations_required = calculate_number_of_simulations_reqired(results)
-print(f"static list number of simulations required: {num_simulations_required}")
+def calculate_number_of_simulations_required_attempt2(a_list):
+    acceptable_uncertainty = 0.05
+    actual_uncertainty = get_uncertainty(a_list)
 
-print(f"uncertainty of static list: {get_uncertainty(results)}")
+    # if already tolerable return. when spending more time on this later can
+    # work out how many less runs are required
+    if actual_uncertainty <= acceptable_uncertainty:
+        return len(a_list)
+    
+    # IE if actual uncertainty is 0.10 and acceptable is 0.05 will get 2
+    divided = actual_uncertainty / acceptable_uncertainty
 
-print("running another test sim to see if above is accurate")
-auto_results = run_test_sim(int(num_simulations_required))
-print(f"uncertainty of automatically determined test run: {get_uncertainty(auto_results)}")
+    # continuing on with example. 2 to the power of 2 is four. we do need to lower uncertainty by half and in a normal distribution stdev is reduced by half every 4n. 2 to the power of 2 is 4
+    square_divided = divided ** 2
+    return square_divided * len(a_list)
 
-# run_test_sim(int(num_simulations_required))
-# print(f"uncertainty of automatically determined test run: {get_uncertainty(auto_results)}")
+num_d6 = 8
+results = run_test_sim(1000, num_d6=num_d6)
+
+num_simulations_required = calculate_number_of_simulations_required_attempt2(results)
+print(f"determined number of simulations required: {num_simulations_required}")
+print(f"uncertainty of results: {get_uncertainty(results)}")
+
+print("verify suggested number of runs")
+auto_results = run_test_sim(int(num_simulations_required), num_d6=num_d6)
+print(f"uncertainty of suggested number of runs: {get_uncertainty(auto_results)}")
