@@ -10,12 +10,12 @@ Classes:
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Self, TypeVar
+from typing import Self, TypeVar
 import logging
 
 from constants import LOGGER_NAME
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 LOGGER = logging.getLogger(LOGGER_NAME + "." + __name__)
 

@@ -1,65 +1,59 @@
+
+from typing import List
 import random
 import math
 import statistics
 
-def run_test_sim(size: int, num_d6: int = 4):
-    results = []
-    for x in range (0, size):
-        a_sum = sum([random.randint(1,6) for x in range(0, num_d6)])
-        results.append(a_sum)
-    
-    return results
 
+##############################
+# unused functions but keeping because i learnt stuff
+##############################
+
+# this is biased for sample variance calculation because statistics.mean divides by n rather than n - 1
 def calculate_standard_deviation(a_list, mean: float = None):
     differences = []
     if mean is None:
         mean = statistics.mean(a_list)
     for value in a_list:
-        square_distance_from_mean = math.pow((mean - value),2)
+        square_distance_from_mean = math.pow((mean - value), 2)
         differences.append(square_distance_from_mean)
     variance = statistics.mean(differences)
     standard_deviation = math.sqrt(variance)
     return standard_deviation
 
-def get_uncertainty(a_list):
-    return calculate_standard_deviation(a_list) / math.sqrt(len(a_list))
 
-# https://stats.stackexchange.com/questions/28987/calculate-number-of-needed-simulations
-# above link didn't work
-def calculate_number_of_simulations_required(a_list):
-    mean = statistics.mean(a_list)
-    standard_deviation = calculate_standard_deviation(a_list, mean)
-    error = 0.05
-    uncertainty = 0.05
-    above_line = 1 - ((uncertainty / 2) * standard_deviation)
-    below_line = error * mean
-    in_brackets = above_line / below_line
-    simulations_required = math.pow(in_brackets, 2)
-    return simulations_required * len(a_list)
 
-def calculate_number_of_simulations_required_attempt2(a_list):
-    acceptable_uncertainty = 0.05
-    actual_uncertainty = get_uncertainty(a_list)
+def run_test_sim(size: int, num_d6: int = 4) -> List[int]:
+    results: List[int] = []
+    for x in range(0, size):
+        results.append(sum(random.randint(1, 6) for x in range(0, num_d6)))
+    return results
 
-    # if already tolerable return. when spending more time on this later can
-    # work out how many less runs are required
-    if actual_uncertainty <= acceptable_uncertainty:
-        return len(a_list)
-    
+
+
+def get_standard_error(a_list: List[int]) -> float:
+    return statistics.stdev(a_list) / math.sqrt(len(a_list))
+
+
+def calculate_number_of_simulations_required_attempt2(a_list: List[int]) -> float:
+    acceptable_uncertainty: float = 0.05
+    standard_error: float = get_standard_error(a_list)
+
     # IE if actual uncertainty is 0.10 and acceptable is 0.05 will get 2
-    divided = actual_uncertainty / acceptable_uncertainty
+    divided: float = standard_error / acceptable_uncertainty
 
     # continuing on with example. 2 to the power of 2 is four. we do need to lower uncertainty by half and in a normal distribution stdev is reduced by half every 4n. 2 to the power of 2 is 4
-    square_divided = divided ** 2
-    return square_divided * len(a_list)
+    squared_divided: float = divided ** 2
+    return math.ceil(squared_divided * len(a_list))
 
-num_d6 = 8
-results = run_test_sim(1000, num_d6=num_d6)
 
-num_simulations_required = calculate_number_of_simulations_required_attempt2(results)
+num_d6: int = 8
+results: List[int] = run_test_sim(10000, num_d6=num_d6)
+
+num_simulations_required: int = calculate_number_of_simulations_required_attempt2(results)
 print(f"determined number of simulations required: {num_simulations_required}")
-print(f"uncertainty of results: {get_uncertainty(results)}")
+print(f"uncertainty of results: {get_standard_error(results)}")
 
 print("verify suggested number of runs")
-auto_results = run_test_sim(int(num_simulations_required), num_d6=num_d6)
-print(f"uncertainty of suggested number of runs: {get_uncertainty(auto_results)}")
+auto_results = run_test_sim(num_simulations_required, num_d6=num_d6)
+print(f"uncertainty of suggested number of runs: {get_standard_error(auto_results)}")
